@@ -47,7 +47,9 @@ position n xs = if (not (elemM n xs)) || null xs
  -- Task 5 ----------------------------------
  
 set :: [Int] -> [Int] 
-set xs = if not (elemM (head xs) (tail xs)) && lengthM (tail xs) == 0
+set xs = if null xs
+	     then []
+	     else if not (elemM (head xs) (tail xs)) && lengthM (tail xs) == 0
          then head xs: tail xs
          else if not (elemM (head xs) (tail xs))
 	     then head xs: set (tail xs)
