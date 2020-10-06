@@ -79,46 +79,7 @@ isCorrect xs = foldl1 (&&) [ abs(x-y)/=abs(xs!!x - xs!!y) | x <- [0..((length xs
 queens :: Int -> [[Int]]
 queens num = [ xs| xs <- checkOnRep num, isCorrect xs == True]
 
--- Task 3 ---------------------------------------------
-
-
- 
--- cond :: ([Int], [[Int]]) -> Bool
--- cond ([], _) = True
--- cond (_:[], _) = True
--- cond (_ , _) = False
-
--- step :: ([Int], [[Int]]) -> ([Int], [[Int]])
--- step ([], _) = error "empty list"
--- step (_:[], _ ) = error "empty list"
--- step (_:xs, yss) = (xs, xs:yss)
-
--- takeAllTails :: [Int] -> [[Int]]
--- takeAllTails xs = snd(until cond step (xs,[])) 
-
--- addHead :: Int -> [Int] -> [Int]
--- addHead myHead xs = myHead: xs
-
--- addHeadToArr :: [Int] -> [[Int]]
--- addHeadToArr xs = map (addHead (head xs)) (takeAllTails xs)
-
--- allPossibleCombination :: [Int] -> [[Int]]
--- allPossibleCombination xs = concat ((addHeadToArr xs): map addHeadToArr (takeAllTails xs))
-
--- test :: [Int] -> [[Int]]
--- test xs = [ xxs | xxs <- allPossibleCombination xs, ascendingOrderCheck xxs]
-
--- test2 :: Int -> [Int] -> [[Int]]
--- test2 num xs = [ xxs | xxs <- test xs num, ascendingOrderCheck xxs]
-
--- allPossibleCombinationWithTest2 :: [Int] -> Int -> [[Int]]
--- allPossibleCombinationWithTest2 xs num = concat (map (test2 num) (allPossibleCombination xs))
-
--- removeDuplicates :: [Int] -> [Int]
--- removeDuplicates = foldl (\seen x -> if x `elem` seen
--- then seen
--- else seen ++ [x]) []
-
+------------------------------------------------------------------------------------------------------
 
 sublists :: [Int] -> [[Int]]
 sublists [] = [[]]
